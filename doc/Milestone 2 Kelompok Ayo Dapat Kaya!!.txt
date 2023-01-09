@@ -1,0 +1,34 @@
+Kelompok Ayo Dapat Kaya!!
+1. Kelvin Rayhan Alkarim (13521005)
+   Membuat rancangan program
+2. Ditra Rizqa Amadia (13521019)
+   Membuat rancangan program
+3. Bernardus Willson (13521021)
+   Membuat state dan fitur map
+4. Raditya Naufal Abiyu (13521022)
+   Membuat fakta yang berhubungan dengan biaya properti
+5. Kartini Copa (13521026)
+   Membuat fakta nama properti
+
+COMPLETED TASK
+- Fact dan State Global Field 
+- Fact dan State Location Field 
+- Fact dan State Card Field 
+- Fact dan State Dice Field
+- Rules start
+- Rules map
+- Rules help
+- Rules checkPlayerDetail(Player)
+- Rules buyProperty
+- Rules payRent
+- Rules sellProperty
+
+ONGOING TASK
+- Rules roll
+- Rules endTurn
+- Rules checkLocationDetail(Location)
+- Rules checkPropertyDetail(Property)
+
+UNCOMPLETED TASK
+- Rules Tax
+- Rules Chance Card

@@ -1,0 +1,313 @@
+Kelompok Ayo Dapat Kaya!!
+1. Kelvin Rayhan Alkarim (13521005)
+   Membuat rancangan program
+2. Ditra Rizqa Amadia (13521019)
+   Membuat rancangan program
+3. Bernardus Willson (13521021)
+   Membuat state dan fitur map
+4. Raditya Naufal Abiyu (13521022)
+   Membuat fakta yang berhubungan dengan biaya properti
+5. Kartini Copa (13521026)
+   Membuat fakta nama properti
+
+GLOBAL FIELD
+
+States
+- isOngoing(Bool). - State keberjalanan game. Bool = 0 saat game belum dimulai atau sudah selesai. Bool = 1 saat game sedang berlangsung.
+- turn(Player). - State giliran melempar dadu.
+- winner(Player). - State pemenang game.
+
+PLAYER FIELD
+
+Facts
+- availablePlayer(v). - Player v valid.
+- availablePlayer(w). - Player w valid.
+- playerId(v, 1). - ID Player v.
+- playerId(w, 2). - ID Player w.
+
+States
+- cash(v, Nominal). - Player v memiliki cash on hand sebesar Nominal.
+- propValue(v, Nominal). - Player v memiliki total properti sebesar Nominal.
+- netWorth(v, Nominal). - Player v memiliki total aset sebesar Nominal (cash + propValue).
+- location(v, Id). - Player v berada pada lokasi dengan ID Id.
+- prop(v, [ListLocation], [ListPropertyType]). - Player v mengakuisisi [List Location] dengan tipe [ListPropertyType] secara berurutan.
+- card(v, [ListCard]). - Player v memiliki kartu [ListCard].
+- isJail(v, Bool). - Player v berada di penjara apabila Bool = 1.
+- nJailThrow(v, Tries). - Player v berada di penjara dan telah melempar Tries kali dadu.
+- isDouble(v, Bool). - Player v sedang mendapatkan double apabila Bool = 1.
+- nDouble(v, N). - Player v sedang mendapatkan double sebanyak N kali.
+- isWorldTour(v, Bool). - Player v sedang berada di kotak World Tour apabila Bool = 1.
+- isDebt(v, Bool). - Player v harus menjual propertinya apabila Bool = 1.
+
+- cash(w, Nominal). - Player w memiliki cash on hand sebesar Nominal.
+- propValue(w, Nominal). - Player w memiliki total properti sebesar Nominal.
+- netWorth(w, Nominal). - Player w memiliki total aset sebesar Nominal (cash + propValue).
+- location(w, Id). - Player w berada pada lokasi dengan ID Id.
+- prop(w, [ListLocation], [ListPropertyType]). - Player w mengakuisisi [List Location] dengan tipe [ListPropertyType] secara berurutan.
+- card(w, [ListCard]). - Player w memiliki kartu [ListCard].
+- isJail(w, Bool). - Player w berada di penjara apabila Bool = 1.
+- nJailThrow(w, Tries). - Player w berada di penjara dan telah melempar Tries kali dadu.
+- isDouble(w, Bool). - Player w sedang mendapatkan double apabila Bool = 1.
+- nDouble(w, N). - Player w sedang mendapatkan double sebanyak N kali.
+- isWorldTour(w, Bool). - Player w sedang berada di kotak World Tour apabila Bool = 1.
+- isDebt(w, Bool). - Player w harus menjual propertinya apabila Bool = 1.
+
+LOCATION FIELD
+
+Facts
+- locField(1, go, "GO", "GO", "Mendapatkan 2000 sebagai gaji."). - Field dari lokasi GO.
+
+- locField(5, cc, "CC", "Chance Card", "Mendapatkan kartu secara acak."). - Field dari CC.
+- locField(21, cc, "CC", "Chance Card", "Mendapatkan kartu secara acak."). - Field dari CC.
+- locField(30, cc, "CC", "Chance Card", "Mendapatkan kartu secara acak."). - Field dari CC.
+
+- locField(13, tx, "TX", "Tax", "Membayar pajak sebesar 10 persen dari total aset."). - Field dari TX.
+- locField(29, tx, "TX", "Tax", "Membayar pajak sebesar 10 persen dari total aset."). - Field dari TX.
+
+- locField(17, fp, "FP", "Free Parking", "Parkir gratis."). - Field dari FP.
+
+- locField(25, wt, "WT", "World Tour", "Berjalan ke lokasi yang pemain inginkan."). - Field dari WT.
+
+- locField(9, jl, "JL", "Jail", "terjebak dalam penjara selama 3 giliran."). - Field dari JL.
+
+- locField(2, a1, "A1", "Jatinangor", "Kecamatan di Kabupaten Sumedang."). - Field dari A1.
+- propAcqui(a1, 200,50,150,250,250). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark A1.
+- propRent(a1, 100,150,300,500,750). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark A1.
+
+- locField(3, a2, "A2", "Cisewu", "Kecamatan di Kabupaten Garut."). - Field dari A2.
+- propAcqui(a2, 200,50,150,250,250). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark A2.
+- propRent(a2, 100,150,300,500,750). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark A2.
+
+- locField(4, a3, "A3", "Cikarang", "Desa di Kecamatan Cisewu."). - Field dari A3.
+- propAcqui(a3, 200,50,150,250,250). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark A3.
+- propRent(a3, 100,150,300,500,750). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark A3.
+
+- locField(6, b1, "B1", "Cirebon", "Kota di Provinsi Jawa Barat."). - Field dari B1.
+- propAcqui(b1, 240,100,300,500,500). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark B1.
+- propRent(b1, 120,220,500,800,1200). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark B1.
+
+- locField(7, b2, "B2", "Ciwaringin", "kecamatan di Kabupaten Cirebon ."). - Field dari B2.
+- propAcqui(b2, 240,100,300,500,500). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark B2.
+- propRent(b2, 120,220,500,800,1200). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark B2.
+
+- locField(8, b3, "B3", "Cimahi", "Kota otonom di Provinsi Jawa Barat."). - Field dari B3.
+- propAcqui(b3, 240,100,300,500,500). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark B3.
+- propRent(b3, 120,220,500,800,1200). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark B3.
+
+- locField(10, c1, "C1", "Cibeureum", "kecamatan di Kota Cimahi."). - Field dari C1.
+- propAcqui(c1, 360,150,450,750,750). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark C1.
+- propRent(c1, 180,300,750,1500,1950). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark C1.
+
+- locField(11, c2, "C2", "Cianjur", "Kabupaten di Provinsi Jawa Barat."). - Field dari C2.
+- propAcqui(c2, 360,150,450,750,750). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark C2.
+- propRent(c2, 180,300,750,1500,1950). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark C2.
+
+- locField(12, c3, "C3", "Cibinong", "Kecamatan di Kabupaten Cianjur."). - Field dari C3.
+- propAcqui(c3, 360,150,450,750,750). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark C3.
+- propRent(c3, 180,300,750,1500,1950). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark C3.
+
+- locField(14, d1, "D1", "Cimaskara", "Desa di Provinsi Jawa Barat."). - Field dari D1.
+- propAcqui(d1, 470,200,600,1000,1000). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark D1.
+- propRent(d1, 240,350,900,1800,2500). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark D1.
+
+- locField(15, d2, "D2", "Cibiru", "Kecamatan di Kota Bandung."). - Field dari D2.
+- propAcqui(d2, 470,200,600,1000,1000). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark D2.
+- propRent(d2, 240,350,900,1800,2500). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark D2.
+
+- locField(16, d3, "D3", "Cipadung", "Desa di Kecamatan Cibiru."). - Field dari D3.
+- propAcqui(d3, 470,200,600,1000,1000). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark D3.
+- propRent(d3, 240,350,900,1800,2500). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark D3.
+
+- locField(18, e1, "E1", "Cileunyi", "Kecamatan di Kabupaten Bandung."). Field dari E1.
+- propAcqui(e1, 600,250,750,1250,1250). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark E1.
+- propRent(e1, 300,500,1100,1800,2700). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark E1.
+
+- locField(19, e2, "E2", "Cinunuk", "Desa di Kecamatan Cileunyi."). Field dari E2.
+- propAcqui(e2, 600,250,750,1250,1250). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark E2.
+- propRent(e2, 300,500,1100,1800,2700). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark E2.
+
+- locField(20, e3, "E3", "Cipeundeuy", "Kecamatan di Kabupaten Bandung Barat."). Field dari E3.
+- propAcqui(e3, 600,250,750,1250,1250). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark E3.
+- propRent(e3, 300,500,1100,1800,2700). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark E3.
+
+- locField(22, f1, "F1", "Ciroyom", "Desa di Kecamatan Cipeundeuy."). - Field dari F1.
+- propAcqui(f1, 750,300,900,1500,1500). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark F1.
+- propRent(f1, 350,650,1400,2300,3000). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark F1.
+
+- locField(23, f2, "F2", "Cikeruh", "Desa di Kecamatan Jatinangor."). - Field dari F2.
+- propAcqui(f2, 750,300,900,1500,1500). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark F2.
+- propRent(f2, 350,650,1400,2300,3000). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark F2.
+
+- locField(24, f3, "F3", "Cikalong", "Kecamatan di Kabupaten Tasikmalaya."). - Field dari F3.
+- propAcqui(f3,750,300,900,1500,1500). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark F3.
+- propRent(f3, 350,650,1400,2300,3000). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark F3.
+
+- locField(26, g1, "G1", "Cikadu", "Desa di Kecamatan Cikalong."). - Field dari G1.
+- propAcqui(g1, 850,350,1050,1750,1750). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark G1.
+- propRent(g1, 400,750,1700,2500,3300). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark G1.
+
+- locField(27, g2, "G2", "Cikole", "Kecamatan di Kabupaten Sukabumi."). - Field dari G2.
+- propAcqui(g2, 850,350,1050,1750,1750). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark G2.
+- propRent(g2, 400,750,1700,2500,3300). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark G2.
+
+- locField(28, g3, "G3", "Cisarua", "Desa di Kecamatan Cikole."). - Field dari G3.
+- propAcqui(g3, 850,350,1050,1750,1750). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark G3.
+- propRent(g3, 400,750,1700,2500,3300). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark G3.
+
+- locField(31, h1, "H1", "Bandung", "Ibu Kota Provinsi Jawa Barat."). - Field dari H1.
+- propAcqui(h1, 1000,400,1200,2000,2000). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark H1.
+- propRent(h1,500,900,1900,2700,3600). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark H1.
+
+- locField(32, h2, "H2", "Jakarta", "Ibu Kota Indonesia."). - Field dari H2.
+- propAcqui(a1,1000,400,1200,2000,2000). - Harga tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark H2.
+- propRent(a1,500,900,1900,2700,3600). - Harga sewa tanah, bangunan 1, bangunan 2, bangunan 3, dan Landmark H2.
+
+States
+- propOwner(a1, Player) - lokasi A1 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(a1, Type) - Lokasi A1 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(a1, Price) - Lokasi A1 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(a1, Rent) - Lokasi A1 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+- propOwner(a2, Player) - lokasi A2 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(a2, Type) - Lokasi A2 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(a2, Price) - Lokasi A2 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(a2, Rent) - Lokasi A2 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+- propOwner(a3, Player) - lokasi A3 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(a3, Type) - Lokasi A3 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(a3, Price) - Lokasi A3 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(a3, Rent) - Lokasi A3 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+- propOwner(b1, Player) - lokasi B1 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(b1, Type) - Lokasi B1 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(b1, Price) - Lokasi B1 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(b1, Rent) - Lokasi B1 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+- propOwner(b2, Player) - lokasi B2 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(b2, Type) - Lokasi B2 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(b2, Price) - Lokasi B2 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(b2, Rent) - Lokasi B2 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+- propOwner(b3, Player) - lokasi B3 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(b3, Type) - Lokasi B3 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(b3, Price) - Lokasi B3 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(b3, Rent) - Lokasi B3 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+- propOwner(c1, Player) - lokasi C1 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(c1, Type) - Lokasi C1 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(c1, Price) - Lokasi C1 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(c1, Rent) - Lokasi C1 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+- propOwner(c2, Player) - lokasi C2 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(c2, Type) - Lokasi C2 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(c2, Price) - Lokasi C2 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(c2, Rent) - Lokasi C2 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+- propOwner(c3, Player) - lokasi C3 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(c3, Type) - Lokasi C3 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(c3, Price) - Lokasi C3 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(c3, Rent) - Lokasi C3 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+- propOwner(d1, Player) - lokasi D1 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(d1, Type) - Lokasi D1 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(d1, Price) - Lokasi D1 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(d1, Rent) - Lokasi D1 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+- propOwner(d2, Player) - lokasi D2 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(d2, Type) - Lokasi D2 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(d2, Price) - Lokasi D2 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(d2, Rent) - Lokasi D2 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+- propOwner(d3, Player) - lokasi D3 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(d3, Type) - Lokasi D3 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(d3, Price) - Lokasi D3 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(d3, Rent) - Lokasi D3 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+- propOwner(e1, Player) - lokasi E1 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(e1, Type) - Lokasi E1 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(e1, Price) - Lokasi E1 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(e1, Rent) - Lokasi E1 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+- propOwner(e2, Player) - lokasi E2 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(e2, Type) - Lokasi E2 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(e2, Price) - Lokasi E2 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(e2, Rent) - Lokasi E2 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+- propOwner(e3, Player) - lokasi E3 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(e3, Type) - Lokasi E3 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(e3, Price) - Lokasi E3 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(e3, Rent) - Lokasi E3 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+- propOwner(f1, Player) - lokasi F1 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(f1, Type) - Lokasi F1 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(f1, Price) - Lokasi F1 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(f1, Rent) - Lokasi F1 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+- propOwner(f2, Player) - lokasi F2 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(f2, Type) - Lokasi F2 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(f2, Price) - Lokasi F2 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(f2, Rent) - Lokasi F2 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+- propOwner(f3, Player) - lokasi F3 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(f3, Type) - Lokasi F3 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(f3, Price) - Lokasi F3 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(f3, Rent) - Lokasi F3 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+- propOwner(g1, Player) - lokasi G1 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(g1, Type) - Lokasi G1 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(g1, Price) - Lokasi G1 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(g1, Rent) - Lokasi G1 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+- propOwner(g2, Player) - lokasi G2 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(g2, Type) - Lokasi G2 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(g2, Price) - Lokasi G2 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(g2, Rent) - Lokasi G2 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+- propOwner(g3, Player) - lokasi G3 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(g3, Type) - Lokasi G3 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(g3, Price) - Lokasi G3 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(g3, Rent) - Lokasi G3 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+- propOwner(h1, Player) - lokasi H1 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(h1, Type) - Lokasi H1 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(h1, Price) - Lokasi H1 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(h1, Rent) - Lokasi H1 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+- propOwner(h2, Player) - lokasi H2 dimiliki Player. Player = null apabila belum diakuisisi.
+- propType(h2, Type) - Lokasi H2 sudah diakuisisi dan memiliki Type bangunan. Type = L apabila Landmark.
+- propPrice(h2, Price) - Lokasi H2 belum diakuisisi dan harga belinya sebesar Price.
+- propRent(h2, Rent) - Lokasi H2 sudah diakuisisi dan harga sewa sebesar Rent. Apabila belum diakuisisi, Rent = 0.
+
+CARD FIELD
+
+Facts
+- cardField(txc, taxCard) - Field card tax.
+- cardField(gfc, giftCard) - Field card gift.
+- cardField(ijc, goToJailCard) - Field card go to jail.
+- cardField(ojc, getOutFromJailCard) - Field card get out from jail.
+
+States
+- newCard(Code, Name) - Card yang didapat secara random.
+
+DICE FIELD
+
+States
+- dice(X,Y) - Keluaran dadu 1 yaitu X dan keluaran dadu 2 yaitu Y
+
+COMPLETED TASK
+- Fact dan State Global Field 
+- Fact dan State Location Field 
+- Fact dan State Card Field 
+- Fact dan State Dice Field
+- Rules Start
+- Rules Map
+- Rules Help
+
+ONGOING TASK
+- Rules Basic commands
+- Rules Throw Dice command
+
+UNCOMPLETED TASK
+- Rules Property dan Location
+- Rules Tax
+- Rules Chance Card
